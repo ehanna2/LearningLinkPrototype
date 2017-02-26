@@ -5,17 +5,15 @@
 public class Driver {
 
 
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+
 		
-		
-		
-		//Create a new student
-		Student Eli = new Student();
-		Eli.setFirstName("Eli");
-		Eli.setLastName("Hanna");
-		Eli.setEmail("ehanna2@asu.edu");
+		//Create new test students
+		Student Eli = new Student("Eli", "Hanna", "ehanna2@asu.edu", 4.0);
+		Student Kendra = new Student("Kendra", "Neil", "kneail@asu.edu", 4.0);
+		Student Jeremy = new Student("Jeremy", "Pasimo", "jpasimo@asu.edu", 4.0);
+		Student Robert = new Student("Robert", "Beerman", "rbeerman@asu.edu", 4.0);
 		
 		System.out.println(Eli.getEmail());
 		
@@ -25,7 +23,6 @@ public class Driver {
 		Sally.setFirstName("Sally");
 		Sally.setLastName("Doe");
 		Sally.setEmail("sdoe@asu.edu");
-		
 		Sally.setBio("Dr. Doe has a PhD in Math.");
 		
 		
@@ -52,6 +49,8 @@ public class Driver {
 		CalculusII.setUserRating(4.5);
 		String[] modules = {"Integration", "Taylor Series", "Parametric Curves", "Polar Equations"};
 		CalculusII.setModules(modules);
+		Student[] enrolledStudents  = {}; //Start with no enrolled Students
+		CalculusII.setEnrolledStudents(enrolledStudents);
 		
 		//ASSIGN TEACHER SALLY TO TEACH CALCULUS II
 		Course[] SallysCourses = {CalculusII};
