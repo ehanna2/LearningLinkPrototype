@@ -9,11 +9,19 @@ public class Student extends User {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public Student(String firstName, String lastName, String email, double GPA){
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.GPA = GPA;
+	}
+	
 	
 	//GETTERS AND SETTERS;
 	public Course[] getEnrolledCourse() {
 		return EnrolledCourse;
 	}
+	
 
 	public void setEnrolledCourse(Course[] enrolledCourse) {
 		EnrolledCourse = enrolledCourse;
