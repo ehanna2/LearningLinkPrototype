@@ -1,18 +1,23 @@
+/*
+ * Arizona State University SER315 Spring A 2017 - Team B
+ * This represents a course a student can take on LearningLink
+ */
+
 
 public class Course {
-	private String courseID;
-	private String courseName;
+	private String courseID;       //Course Call number ex: MAT266, SER315
+	private String courseName;     //Longform name of course ex: Calculus II, Software Design
 	private String courseHomePage; //This is a URL to the courses homepage
-	private String courseOverview;
-	private Prerequisite prereq;
+	private String courseOverview; //Brief description of course
+	private Prerequisite prereq;  
 	private Teacher instructor;
-	private String whoClassFor;
+	private String whoClassFor;    //The intended audience
 	private String briefSyllabus;
 	private String courseDifficulty;
-	private int  courseTotalHours;
+	private int  courseTotalHours; 
 	private double userRating;
 	private String subject; //This describes the type of course ex: math, science, language...
-	private String[] modules;//
+	private String[] modules;       
 	private Student[] enrolledStudents;
 	
 	//DEFAULT CONSTRUCTOR

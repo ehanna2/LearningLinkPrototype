@@ -1,4 +1,7 @@
-
+/*
+ * Arizona State University SER315 Spring A 2017 - Team B
+ * This class represents a list of courses a student is currently enrolled in.
+ */
 public class EnrolledCourse extends Course {
 
 	private int percentCompleted;

@@ -1,6 +1,7 @@
-
 /*
+ * Arizona State University SER315 Spring A 2017 - Team B
  * This is a driver class that can be used to create and test objects
+ * This will be used to perform the demo for the final deliverable
  */
 public class Driver {
 
@@ -14,8 +15,6 @@ public class Driver {
 		Student Kendra = new Student("Kendra", "Neil", "kneail@asu.edu", 4.0);
 		Student Jeremy = new Student("Jeremy", "Pasimo", "jpasimo@asu.edu", 4.0);
 		Student Robert = new Student("Robert", "Beerman", "rbeerman@asu.edu", 4.0);
-		
-		System.out.println(Eli.getEmail());
 		
 		
 		//Create a test Teachers

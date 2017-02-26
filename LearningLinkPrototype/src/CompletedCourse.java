@@ -1,4 +1,8 @@
-
+/*
+ * Arizona State University SER315 Spring A 2017 - Team B
+ * This class represents a list of courses a student has completed
+ * 
+ */
 public class CompletedCourse extends Course {
 
 	private double grade;

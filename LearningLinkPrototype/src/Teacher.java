@@ -1,4 +1,7 @@
-
+/*
+ * Arizona State University SER315 Spring A 2017 - Team B
+ * This class represents a Teacher. It is a child of @User
+ */
 public class Teacher extends User{
 
 	private Course[] coursesTeaching;
