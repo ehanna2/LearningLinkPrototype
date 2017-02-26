@@ -14,7 +14,10 @@ public class Course {
 	//modules
 	//enrolledStudents
 	
-	
+	//DEFAULT CONSTRUCTOR
+	public Course(){
+		
+	}
 	
 	//GETTERS AND SETTERS
 	public String getCourseID(){
