@@ -1,12 +1,12 @@
 
 public class User {
 
-	private String userID;
-	private String password;
-	private boolean loginStatus;
-	private String firstName;
-	private String lastName;
-	private String email;
+	protected String userID;
+	protected String password;
+	protected boolean loginStatus;
+	protected String firstName;
+	protected String lastName;
+	protected String email;
 	
 	
 	public User() {
