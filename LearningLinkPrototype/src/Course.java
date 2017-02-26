@@ -4,7 +4,7 @@ public class Course {
 	private String courseName;
 	private String courseHomePage;
 	private String courseOverview;
-	//private Prerequisite prereq
+	private Prerequisite prereq;
 	//private Teacher instructor;
 	private String whoClassFor;
 	private String briefSyllabus;
