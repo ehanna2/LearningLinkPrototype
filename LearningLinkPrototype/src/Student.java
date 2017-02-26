@@ -9,6 +9,7 @@ public class Student extends User {
 		// TODO Auto-generated constructor stub
 	}
 	
+	//Custom constructor to demo prototype. We don't care about the other attributes for this use case
 	public Student(String firstName, String lastName, String email, double GPA){
 		this.firstName = firstName;
 		this.lastName = lastName;
