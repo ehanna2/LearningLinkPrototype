@@ -15,6 +15,11 @@ public class Prerequisite {
 	public Prerequisite() {
 		
 	}
+	
+	public Prerequisite(String courseID, double grade){
+		this.courseID = courseID;
+		this.grade = grade;
+	}
 
 	//GETTERS AND SETTERS
 	public String getCourseID() {
