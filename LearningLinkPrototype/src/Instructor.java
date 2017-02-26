@@ -36,5 +36,4 @@ public class Instructor extends User{
 	public void setBio(String bio) {
 		this.bio = bio;
 	}
-
 }

@@ -1,10 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 /*
  * Arizona State University SER315 Spring A 2017 - Team B
  * This is a driver class that can be used to create and test objects
@@ -109,13 +105,7 @@ public class Driver {
 			System.out.println("Registration Unsuccessful. Prerequisites Not Met.");
 		} else {
 			System.out.println("Registration Unsuccessful. Class Full.");
-		}
-		
-		
-		
-		
-		
-
+		}	
 	}
 	
 	public static boolean prereqCheck(Student student, Course course) {

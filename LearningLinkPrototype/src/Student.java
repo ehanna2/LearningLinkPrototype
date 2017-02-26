@@ -11,10 +11,6 @@ public class Student extends User {
 	private ArrayList<EnrolledCourse> enrolledCourses = new ArrayList<EnrolledCourse>();
 	private double GPA;
 	
-	public Student() {
-		// TODO Auto-generated constructor stub
-	}
-	
 	//Custom constructor to demo prototype. We don't care about the other attributes for this use case
 	public Student(String firstName, String lastName, String email, double GPA){
 		this.firstName = firstName;
@@ -52,8 +48,7 @@ public class Student extends User {
 		return list;
 	}
 	
-	
-	
+
 	public boolean isEnrolled(Course courseName) {
 		for(EnrolledCourse enrolledCourse : enrolledCourses) {
 			Course temp = enrolledCourse.getCourse();

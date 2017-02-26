@@ -36,7 +36,4 @@ public class Prerequisite {
 	public void setGrade(double grade) {
 		this.grade = grade;
 	}
-	
-	
-
 }
