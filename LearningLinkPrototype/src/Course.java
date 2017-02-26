@@ -11,6 +11,7 @@ public class Course {
 	private String courseDifficulty;
 	private int  courseTotalHours;
 	private double userRating;
+	private String subject; //This describes the type of course ex: math, science, language...
 	//modules
 	//enrolledStudents
 	
@@ -109,7 +110,13 @@ public class Course {
 		this.userRating = userRating;
 	}
 	
+	public String getSubject(){
+		return subject;
+	}
 	
+	public void setSubject(String subject){
+		this.subject = subject;
+	}
 	
 	
 	
