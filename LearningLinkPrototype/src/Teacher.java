@@ -7,6 +7,14 @@ public class Teacher extends User{
 	public Teacher() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	//Custom constructor to demo prototype. We don't care about the other attributes for this use case
+	public Teacher(String firstName, String lastName, String email, String bio){
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.bio = bio;
+	}
 
 	public Course[] getCoursesTeaching() {
 		return coursesTeaching;
