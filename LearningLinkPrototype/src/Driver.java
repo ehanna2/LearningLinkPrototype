@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -15,26 +16,25 @@ public class Driver {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner scan = new Scanner(System.in);
-		String username, password;
+		String input = "";
 
 		
 		//Create new test students
-		Student Eli = new Student("Eli", "Hanna", "ehanna2@asu.edu", 4.0, "ehanna", "password");
-		Student Kendra = new Student("Kendra", "Neil", "kneail@asu.edu", 4.0, "kneil", "password");
-		Student Jeremy = new Student("Jeremy", "Pasimio", "jpasimio@asu.edu", 4.0, "jpasimio", "password");
-		Student Robert = new Student("Robert", "Beerman", "rbeerman@asu.edu", 4.0, "rbeerman", "password");
-		Student Mary = new Student("Mary", "Brown", "mbrown@gmail.com", 4.0, "mbrown", "password");
+		Student Eli = new Student("Eli", "Hanna", "ehanna2@asu.edu", 4.0);
+		Student Kendra = new Student("Kendra", "Neil", "kneail@asu.edu", 4.0);
+		Student Jeremy = new Student("Jeremy", "Pasimio", "jpasimio@asu.edu", 4.0);
+		Student Robert = new Student("Robert", "Beerman", "rbeerman@asu.edu", 4.0);
+		Student Mary = new Student("Mary", "Brown", "mbrown@gmail.com", 4.0);
 		
 		
-		//Create a test Teachers
-		Teacher Sally = new Teacher("Sally", "Doe", "sdoe@asu.edu", "Dr. Doe has a PhD in Math.");
-		Teacher Mark = new Teacher("Mark", "Smith", "msmith@asu.edu", "Dr. Smith has a PhD in Computer Science.");
+		//Create a test Instructors
+		Instructor Sally = new Instructor("Sally", "Doe", "sdoe@asu.edu", "Dr. Doe has a PhD in Math.");
 		
 		
 		//Create a Prerequisite
-		
-		Prerequisite CalculusI = new Prerequisite("MAT265", 2.0);
-		Mary.setCompletedCourse(CalculusI, 4.0);
+		Course CalculusI = new Course();
+		Prerequisite CalcI = new Prerequisite(CalculusI, 2.0);
+		CalculusI.setCourseName("Calculus For Engineer I");
 		
 		
 		//Create a Course
@@ -44,7 +44,7 @@ public class Driver {
 		CalculusII.setCourseHomePage("www.learninglink.com/Calc2");
 		CalculusII.setSubject("Mathematics");
 		CalculusII.setCourseOverview("Methods of integration, applications of calculus, elements of analytic geometry, improper integrals");
-		CalculusII.setPrereq(CalculusI);
+		CalculusII.setPrereq(CalcI);
 		CalculusII.setInstructor(Sally);
 		CalculusII.setWhoClassFor("Students who want to learn integrals!");
 		CalculusII.setBriefSyllabus("This is the second class in our Calculus for Engineers series.");
@@ -53,39 +53,80 @@ public class Driver {
 		CalculusII.setUserRating(4.5);
 		String[] modules = {"Integration", "Taylor Series", "Parametric Curves", "Polar Equations"};
 		CalculusII.setModules(modules);
-		Student[] enrolledStudents  = {}; //Start with no enrolled Students
-		CalculusII.setEnrolledStudents(enrolledStudents);
+		CalculusII.setEnrollmentLimit(50);
 		
-		//ASSIGN TEACHER SALLY TO TEACH CALCULUS II
-		Course[] SallysCourses = {CalculusII};
-		Sally.setCoursesTeaching(SallysCourses); 
+		//ASSIGN Instructor SALLY TO TEACH CALCULUS II
+		Sally.addCourseTeaching(CalculusII);
 		
+		//Assign Calculus I as Completed Class for Mary
+		Mary.addToCompletedCourseList(CalculusI, 4.0);
+		
+		//Display Course Page for Calculus II
+		System.out.println("Calculus II\n\nCourse Information\n\nCourse ID: " + CalculusII.getCourseID() 
+				+ "\nCourse Name: " + CalculusII.getCourseName() + "\nCourse Homepage: " 
+				+ CalculusII.getCourseHomePage() + "\nCourse Subject: " + CalculusII.getSubject() 
+				+ "\nCourse Overview: " + CalculusII.getCourseOverview() + "\nPrerequisites: " 
+				+ CalculusII.printPrereq(CalcI) + "\nInstructor: " + CalculusII.getInstructorName() 
+				+ "\nWho the Course is For: " + CalculusII.getWhoClassFor() + "\nBrief Syllabus: " 
+				+ CalculusII.getBriefSyllabus() + "\nDifficulty: " + CalculusII.getCourseDifficulty()
+				+ "\nTotal Hours to Complete: " + CalculusII.getCourseTotalHours() + "\nUser Rating: "
+				+ CalculusII.getUserRating() + "\nModules: " + CalculusII.printModules() 
+				+ "\nMax Enrollment: " + CalculusII.getEnrollmentLimit() + "\nStudents Enrolled: " 
+				+ CalculusII.getStudentNames());
+		
+		System.out.println("\n" + Mary.firstName + " " + Mary.lastName + "'s Course List:\n" 
+				+ Mary.printEnrolledCourses());
 	
-		//TODO Register test students to course
-		 JFrame frame = new JFrame("Calculus II");
-		 frame.setVisible(true);
-		 frame.setSize(500,200);
-		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		 JPanel panel = new JPanel();
-		 frame.add(panel);
-		 JButton button = new JButton("Register");
-		 panel.add(button);
+		//Register test students to course
+		System.out.println("\nRegister?");
+		input = scan.nextLine();
 		
-		
-		//TODO print output to show how the prototype works
-		System.out.println("Welcome to LearningLink. Please input your username and password.");
-		while(!Mary.isLoginStatus()) {
-			System.out.print("Username: ");
-			username = scan.nextLine();
-			System.out.print("Password: ");
-			password = scan.nextLine();
-			if(!Mary.validate(username, password))
-				System.out.println("Invalid User Credentials, Please Try Again.");
+		if(prereqCheck(Mary, CalculusII) && CalculusII.spaceInClass()) {
+			
+			// Add class to Mary's Enrolled Classes List
+			EnrolledCourse MaryBrownCalcII = Mary.enroll(CalculusII);
+			Mary.addEnrolledCourse(MaryBrownCalcII);
+			System.out.println("Congratulations! Course Added.");
+			System.out.println("\n" + Mary.firstName + " " + Mary.lastName + "'s Course List:\n" 
+					+ Mary.printEnrolledCourses());
+			
+			//Add Mary to Class Roster
+			CalculusII.addEnrolledStudent(Mary);
+			System.out.println("Calculus II\n\nCourse Information\n\nCourse ID: " + CalculusII.getCourseID() 
+			+ "\nCourse Name: " + CalculusII.getCourseName() + "\nCourse Homepage: " 
+			+ CalculusII.getCourseHomePage() + "\nCourse Subject: " + CalculusII.getSubject() 
+			+ "\nCourse Overview: " + CalculusII.getCourseOverview() + "\nPrerequisites: " 
+			+ CalculusII.printPrereq(CalcI) + "\nInstructor: " + CalculusII.getInstructorName() 
+			+ "\nWho the Course is For: " + CalculusII.getWhoClassFor() + "\nBrief Syllabus: " 
+			+ CalculusII.getBriefSyllabus() + "\nDifficulty: " + CalculusII.getCourseDifficulty()
+			+ "\nTotal Hours to Complete: " + CalculusII.getCourseTotalHours() + "\nUser Rating: "
+			+ CalculusII.getUserRating() + "\nModules: " + CalculusII.printModules() 
+			+ "\nMax Enrollment: " + CalculusII.getEnrollmentLimit() + "\nStudents Enrolled: " 
+			+ CalculusII.getStudentNames());
+			
+			
+		} else if(prereqCheck(Mary, CalculusII) ) {
+			System.out.println("Registration Unsuccessful. Prerequisites Not Met.");
+		} else {
+			System.out.println("Registration Unsuccessful. Class Full.");
 		}
-		System.out.println("Welcome Mary");
+		
+		
+		
+		
 		
 
 	}
-
+	
+	public static boolean prereqCheck(Student student, Course course) {
+		Prerequisite coursePrereq = course.getPrereq();
+		ArrayList<CompletedCourse> complete = student.getCompletedCourseList();
+		for(int i = 0; i < complete.size(); i++) {
+			Course temp = complete.get(i).getCourse();
+			Course prereq = coursePrereq.getCourse();
+			if(temp.equals(prereq))
+				return true;
+		}
+		return false;
+	}
 }

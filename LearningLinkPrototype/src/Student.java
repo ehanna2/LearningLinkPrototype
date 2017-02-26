@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class Student extends User {
 
 	private EnrolledCourse enrolledCourse;
-	private CompletedCourse completeCourse;
 	private ArrayList<CompletedCourse> completedCourses = new ArrayList<CompletedCourse>();
 	private ArrayList<EnrolledCourse> enrolledCourses = new ArrayList<EnrolledCourse>();
 	private double GPA;
@@ -17,52 +16,60 @@ public class Student extends User {
 	}
 	
 	//Custom constructor to demo prototype. We don't care about the other attributes for this use case
-	public Student(String firstName, String lastName, String email, double GPA, String userID, String password){
+	public Student(String firstName, String lastName, String email, double GPA){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.GPA = GPA;
-		this.userID = userID;
-		this.password = password;
 	}
 	
 	
 	
 	//Add, Drop, Return
-	public void addEnrolledClass(EnrolledCourse course) {
-		enrolledCourses.add(course);
+	public EnrolledCourse enroll(Course course) {
+		enrolledCourse = new EnrolledCourse(course);
+		return enrolledCourse;
 	}
-
-	public void dropEnrolledCourse(EnrolledCourse course) {
-		enrolledCourses.remove(course);
+	
+	public void addEnrolledCourse(EnrolledCourse course) {
+		enrolledCourses.add(course);
 	}
 	
 	public ArrayList<EnrolledCourse> getEnrolledCourses() {
 		return enrolledCourses;
 	}
 	
+	public String printEnrolledCourses() {
+		String list = "";
+		if(enrolledCourses.size() == 0)
+			return "none";
+		for(int i = 0; i < enrolledCourses.size(); i++) {
+			EnrolledCourse temp = enrolledCourses.get(i);
+			Course course = temp.getCourse();
+			String name = course.getCourseName();
+			list = list + name + "\n";
+		}
+		return list;
+	}
+	
+	
+	
 	public boolean isEnrolled(Course courseName) {
 		for(EnrolledCourse enrolledCourse : enrolledCourses) {
-			if(enrolledCourse.)
+			Course temp = enrolledCourse.getCourse();
+			if(temp.equals(courseName))
+				return true;
 		}
 		return false;
 	}
-
-	public Course getCompletedCourse() {
-		return CompletedCourse;
+	
+	public void addToCompletedCourseList(Course course, double grade) {
+		CompletedCourse temp = new CompletedCourse(course, grade);
+		completedCourses.add(temp);
 	}
-
-	public void setCompletedCourse(Course completedCourse, double grade) {
-		
-	}
-
-	//GETTERS AND SETTERS;
-	public double getGPA() {
-		return GPA;
-	}
-
-	public void setGPA(double gPA) {
-		GPA = gPA;
+	
+	public ArrayList<CompletedCourse> getCompletedCourseList() {
+		return completedCourses;
 	}
 
 }

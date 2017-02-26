@@ -9,27 +9,22 @@
 
 public class Prerequisite {
 	
-	private String courseID;
+	private Course course;
 	private double grade;     //Represented as a double on a 4.0 scale
 	
-	//DEFAULT CONSTRUCTOR
-	public Prerequisite() {
-		
-	}
-	
-	public Prerequisite(String courseID, double grade){
-		this.courseID = courseID;
+	public Prerequisite(Course course, double grade){
+		this.course = course;
 		this.grade = grade;
 	}
 
 	//GETTERS AND SETTERS
-	public String getCourseID() {
-		return courseID;
+	public Course getCourse() {
+		return course;
 	}
 
 
-	public void setCourseID(String courseID) {
-		this.courseID = courseID;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
 
 

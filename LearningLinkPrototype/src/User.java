@@ -1,6 +1,6 @@
 /*
  * Arizona State University SER315 Spring A 2017 - Team B
- * General User class. This class is parent to @Student and @Teacher
+ * General User class. This class is parent to @Student and @Instructor
  */
 
 

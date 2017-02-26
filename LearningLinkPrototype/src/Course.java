@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /*
  * Arizona State University SER315 Spring A 2017 - Team B
  * This represents a course a student can take on LearningLink
@@ -10,7 +12,7 @@ public class Course {
 	private String courseHomePage; //This is a URL to the courses homepage
 	private String courseOverview; //Brief description of course
 	private Prerequisite prereq;  
-	private Teacher instructor;
+	private Instructor instructor;
 	private String whoClassFor;    //The intended audience
 	private String briefSyllabus;
 	private String courseDifficulty;
@@ -18,7 +20,8 @@ public class Course {
 	private double userRating;
 	private String subject; //This describes the type of course ex: math, science, language...
 	private String[] modules;       
-	private Student[] enrolledStudents;
+	private ArrayList<Student> enrolledStudents = new ArrayList<Student>();
+	private int enrollmentLimit;
 	
 	//DEFAULT CONSTRUCTOR
 	public Course(){
@@ -66,13 +69,22 @@ public class Course {
 	public void setPrereq(Prerequisite prereq) {
 		this.prereq = prereq;
 	}
+	
+	public String printPrereq(Prerequisite prereq) {
+		Course temp = prereq.getCourse();
+		return temp.courseName + " with at least a " + prereq.getGrade(); 
+	}
 
-	public Teacher getInstructor() {
+	public Instructor getInstructor() {
 		return instructor;
 	}
 
-	public void setInstructor(Teacher instructor) {
+	public void setInstructor(Instructor instructor) {
 		this.instructor = instructor;
+	}
+	
+	public String getInstructorName() {
+		return instructor.firstName + " " + instructor.lastName;
 	}
 
 	public String getWhoClassFor() {
@@ -127,18 +139,64 @@ public class Course {
 		return modules;
 	}
 	
-	public void setModules(String[] modules){
-		this.modules = modules;
+	public void setModules(String[] modules2){
+		this.modules = modules2;
+	}
+	
+	public String printModules() {
+		String list = modules[0];
+		for(int i = 1; i < modules.length; i++) {
+			list = list + ", " + modules[i];
+					
+		}
+		return list;
 	}
 
-	public Student[] getEnrolledStudents() {
+	public ArrayList<Student> getEnrolledStudents() {
 		return enrolledStudents;
 	}
 
-	public void setEnrolledStudents(Student[] enrolledStudents) {
-		this.enrolledStudents = enrolledStudents;
+	public void addEnrolledStudent(Student student) {
+		enrolledStudents.add(student);
+	}
+		
+	public int getNumStudentsEnrolled() {
+		try {
+			return enrolledStudents.size();
+		} catch(Exception e) {
+			return 0;
+		}
 	}
 	
+	public void setEnrollmentLimit(int enrollmentLimit) {
+		this.enrollmentLimit = enrollmentLimit;
+	}
+	
+	public int getEnrollmentLimit() {
+		return enrollmentLimit;
+	}
+	
+	public boolean spaceInClass() {
+		if(getNumStudentsEnrolled() < enrollmentLimit)
+			return true;
+		return false;
+	}
+	
+	public String getStudentNames() {
+		try {
+			Student temp = enrolledStudents.get(0);
+			String student = temp.firstName + " " + temp.lastName;
+			String list = student;
+			for(int i = 1; i < enrolledStudents.size(); i++) {
+				temp = enrolledStudents.get(i);
+				student = temp.firstName + " " + temp.lastName;
+				list = list + ", " + student;
+			}
+		return list;
+		} catch(Exception e) {
+			return "none";
+		}
+	}
 	
 	
 	

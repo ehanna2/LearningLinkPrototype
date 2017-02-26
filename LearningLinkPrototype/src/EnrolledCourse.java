@@ -6,9 +6,7 @@ public class EnrolledCourse {
 
 	private Course course;
 	private int percentCompleted;
-	private int[] moduleGrades;
-	private int overallGrade;
-	private boolean completed;
+	private double overallGrade;
 		
 	public EnrolledCourse(Course course) {
 		this.course = course;
@@ -16,26 +14,16 @@ public class EnrolledCourse {
 		
 	}
 	
-	private int calculatePercentComplete(){
-		//TODO determine how to calculate
+	public int getPercentCompleted() {
 		return percentCompleted;
 	}
 	
-	public int getPercentCompleted(){
-		return percentCompleted;
-	}
-	
-	public int[] getModuleGrades(){
-	
-		return moduleGrades;
-	}
-	
-	private double calculateOverallGrade(){
-		//TODO Add calculation
+	public double getOverallGrade() {
 		return overallGrade;
 	}
-	
-	public double getOverallGrade(){
-		return overallGrade;
+
+	public Course getCourse() {
+		return course;
 	}
+
 }

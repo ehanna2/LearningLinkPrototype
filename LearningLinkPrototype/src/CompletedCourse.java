@@ -17,7 +17,7 @@ public class CompletedCourse {
 		return grade;
 	}
 	
-	public Course getCoures() {
+	public Course getCourse() {
 		return course;
 	}
 
