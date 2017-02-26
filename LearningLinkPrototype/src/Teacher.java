@@ -23,8 +23,5 @@ public class Teacher extends User{
 	public void setBio(String bio) {
 		this.bio = bio;
 	}
-	
-	
-	
 
 }
