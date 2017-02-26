@@ -18,19 +18,14 @@ public class Driver {
 		System.out.println(Eli.getEmail());
 		
 		
-		//Create a new Teacher
-		Teacher Sally = new Teacher();
-		Sally.setFirstName("Sally");
-		Sally.setLastName("Doe");
-		Sally.setEmail("sdoe@asu.edu");
-		Sally.setBio("Dr. Doe has a PhD in Math.");
+		//Create a test Teachers
+		Teacher Sally = new Teacher("Sally", "Doe", "sdoe@asu.edu", "Dr. Doe has a PhD in Math.");
+		Teacher Mark = new Teacher("Mark", "Smith", "msmith@asu.edu", "Dr. Smith has a PhD in Computer Science.");
 		
 		
 		//Create a Prerequisite
 		
-		Prerequisite CalculusI = new Prerequisite();
-		CalculusI.setCourseID("MAT265");
-		CalculusI.setGrade(2.0);
+		Prerequisite CalculusI = new Prerequisite("MAT265", 2.0);
 		
 		
 		//Create a Course
@@ -57,7 +52,10 @@ public class Driver {
 		Sally.setCoursesTeaching(SallysCourses); 
 		
 	
+		//TODO Register test students to course
 		
+		
+		//TODO print output to show how the prototype works
 		
 
 	}
