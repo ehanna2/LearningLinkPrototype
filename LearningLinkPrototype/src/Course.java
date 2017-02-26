@@ -13,7 +13,7 @@ public class Course {
 	private double userRating;
 	private String subject; //This describes the type of course ex: math, science, language...
 	private String[] modules;//
-	//enrolledStudents
+	private Student[] enrolledStudents;
 	
 	//DEFAULT CONSTRUCTOR
 	public Course(){
@@ -125,6 +125,16 @@ public class Course {
 	public void setModules(String[] modules){
 		this.modules = modules;
 	}
+
+	public Student[] getEnrolledStudents() {
+		return enrolledStudents;
+	}
+
+	public void setEnrolledStudents(Student[] enrolledStudents) {
+		this.enrolledStudents = enrolledStudents;
+	}
+	
+	
 	
 	
 	
