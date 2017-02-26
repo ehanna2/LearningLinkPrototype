@@ -3,17 +3,22 @@
  * This class represents a list of courses a student has completed
  * 
  */
-public class CompletedCourse extends Course {
+public class CompletedCourse {
 
 	private double grade;
-	private boolean completed;
+	private Course course;
 	
-	public CompletedCourse() {
-		// TODO Auto-generated constructor stub
+	public CompletedCourse(Course course, double grade) {
+		this.course = course;
+		this.grade = grade;
 	}
 	
 	public double getGrade(){
 		return grade;
+	}
+	
+	public Course getCoures() {
+		return course;
 	}
 
 }

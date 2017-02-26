@@ -3,13 +3,13 @@
  * This class is the mechanism that a student enrolls in a course
  * 
  */
-public class CourseRegistraction{
+public class CourseRegistration{
 	
 	private Student registeringStudent;
 	private Course courseToTake;
 	
 
-	public CourseRegistraction() {
+	public CourseRegistration() {
 		// TODO Auto-generated constructor stub
 	}
 	

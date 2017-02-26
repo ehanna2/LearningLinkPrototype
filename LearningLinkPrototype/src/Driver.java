@@ -1,3 +1,9 @@
+import java.util.Scanner;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 /*
  * Arizona State University SER315 Spring A 2017 - Team B
  * This is a driver class that can be used to create and test objects
@@ -8,13 +14,16 @@ public class Driver {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		String username, password;
 
 		
 		//Create new test students
-		Student Eli = new Student("Eli", "Hanna", "ehanna2@asu.edu", 4.0);
-		Student Kendra = new Student("Kendra", "Neil", "kneail@asu.edu", 4.0);
-		Student Jeremy = new Student("Jeremy", "Pasimo", "jpasimo@asu.edu", 4.0);
-		Student Robert = new Student("Robert", "Beerman", "rbeerman@asu.edu", 4.0);
+		Student Eli = new Student("Eli", "Hanna", "ehanna2@asu.edu", 4.0, "ehanna", "password");
+		Student Kendra = new Student("Kendra", "Neil", "kneail@asu.edu", 4.0, "kneil", "password");
+		Student Jeremy = new Student("Jeremy", "Pasimio", "jpasimio@asu.edu", 4.0, "jpasimio", "password");
+		Student Robert = new Student("Robert", "Beerman", "rbeerman@asu.edu", 4.0, "rbeerman", "password");
+		Student Mary = new Student("Mary", "Brown", "mbrown@gmail.com", 4.0, "mbrown", "password");
 		
 		
 		//Create a test Teachers
@@ -25,6 +34,7 @@ public class Driver {
 		//Create a Prerequisite
 		
 		Prerequisite CalculusI = new Prerequisite("MAT265", 2.0);
+		Mary.setCompletedCourse(CalculusI, 4.0);
 		
 		
 		//Create a Course
@@ -52,9 +62,28 @@ public class Driver {
 		
 	
 		//TODO Register test students to course
+		 JFrame frame = new JFrame("Calculus II");
+		 frame.setVisible(true);
+		 frame.setSize(500,200);
+		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		 JPanel panel = new JPanel();
+		 frame.add(panel);
+		 JButton button = new JButton("Register");
+		 panel.add(button);
 		
 		
 		//TODO print output to show how the prototype works
+		System.out.println("Welcome to LearningLink. Please input your username and password.");
+		while(!Mary.isLoginStatus()) {
+			System.out.print("Username: ");
+			username = scan.nextLine();
+			System.out.print("Password: ");
+			password = scan.nextLine();
+			if(!Mary.validate(username, password))
+				System.out.println("Invalid User Credentials, Please Try Again.");
+		}
+		System.out.println("Welcome Mary");
 		
 
 	}

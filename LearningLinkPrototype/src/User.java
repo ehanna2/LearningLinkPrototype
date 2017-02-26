@@ -12,6 +12,8 @@ public class User {
 	protected String firstName;
 	protected String lastName;
 	protected String email;
+	private String inputPassword;
+	private String inputUsername;
 	
 	
 	public User() {
@@ -66,6 +68,12 @@ public class User {
 		this.email = email;
 	}
 
-
+	public boolean validate(String inputUsername, String inputPassword) {
+		if(inputPassword.equals(password) && inputUsername.equals(userID)) {
+			setLoginStatus(true);
+			return true;
+		}
+		return false;
+	}
 
 }
