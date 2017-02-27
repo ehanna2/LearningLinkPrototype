@@ -10,10 +10,7 @@ public class Driver {
 
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner scan = new Scanner(System.in);
-		String input = "";
-
 		
 		//Create new test students
 		Student Eli = new Student("Eli", "Hanna", "ehanna2@asu.edu", 4.0);
@@ -75,11 +72,13 @@ public class Driver {
 	
 		//Register test students to course
 		System.out.println("\nPress Enter to Register.");
-		input = scan.nextLine();
+
+		scan.nextLine();
+		scan.close();
 		
 		if(prereqCheck(Mary, CalculusII) && CalculusII.spaceInClass()) {
-			
 			// Add class to Mary's Enrolled Classes List
+			System.out.println("Enrolling student in course...\n");
 			EnrolledCourse MaryBrownCalcII = Mary.enroll(CalculusII);
 			Mary.addEnrolledCourse(MaryBrownCalcII);
 			System.out.println("Congratulations! Course Added.");
@@ -109,14 +108,22 @@ public class Driver {
 	}
 	
 	public static boolean prereqCheck(Student student, Course course) {
+		String courseName = course.getCourseName();
+		System.out.println("Checking pre-requisites for " + courseName + "...\n");
+		
 		Prerequisite coursePrereq = course.getPrereq();
+		
+		System.out.println("Getting student's completed courses...\n");
 		ArrayList<CompletedCourse> complete = student.getCompletedCourseList();
 		for(int i = 0; i < complete.size(); i++) {
 			Course temp = complete.get(i).getCourse();
 			Course prereq = coursePrereq.getCourse();
 			if(temp.equals(prereq))
+				System.out.println("Pre-requisites complete. Ok to enroll in " + courseName + ".\n");
 				return true;
 		}
+		
+		System.out.println("Student has unmet pre-requisites. Not ok to enroll in " + courseName + ".\n");
 		return false;
 	}
 }
