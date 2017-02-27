@@ -68,6 +68,12 @@ public class User {
 		this.email = email;
 	}
 
+	
+	/*
+	 * Validates the user's username and password.
+	 * If the username and password are valid, returns TRUE
+	 * Otherwise, returns FALSE
+	 */
 	public boolean validate(String inputUsername, String inputPassword) {
 		if(inputPassword.equals(password) && inputUsername.equals(userID)) {
 			setLoginStatus(true);

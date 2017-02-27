@@ -9,8 +9,9 @@ public class Instructor extends User{
 	private ArrayList<Course> coursesTeaching = new ArrayList<Course>();
 	private String bio;
 	
+	//Default constructor
 	public Instructor() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	//Custom constructor to demo prototype. We don't care about the other attributes for this use case

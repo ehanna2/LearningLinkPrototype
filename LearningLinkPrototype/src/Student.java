@@ -48,7 +48,6 @@ public class Student extends User {
 		return list;
 	}
 	
-
 	public boolean isEnrolled(Course courseName) {
 		for(EnrolledCourse enrolledCourse : enrolledCourses) {
 			Course temp = enrolledCourse.getCourse();

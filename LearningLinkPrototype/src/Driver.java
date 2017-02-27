@@ -74,7 +74,7 @@ public class Driver {
 				+ Mary.printEnrolledCourses());
 	
 		//Register test students to course
-		System.out.println("\nRegister?");
+		System.out.println("\nPress Enter to Register.");
 		input = scan.nextLine();
 		
 		if(prereqCheck(Mary, CalculusII) && CalculusII.spaceInClass()) {

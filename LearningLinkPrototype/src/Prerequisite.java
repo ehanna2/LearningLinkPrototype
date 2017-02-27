@@ -12,6 +12,7 @@ public class Prerequisite {
 	private Course course;
 	private double grade;     //Represented as a double on a 4.0 scale
 	
+	//Default constructor
 	public Prerequisite(Course course, double grade){
 		this.course = course;
 		this.grade = grade;
@@ -21,7 +22,6 @@ public class Prerequisite {
 	public Course getCourse() {
 		return course;
 	}
-
 
 	public void setCourse(Course course) {
 		this.course = course;

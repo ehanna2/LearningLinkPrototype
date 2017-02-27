@@ -5,7 +5,6 @@ import java.util.ArrayList;
  * This represents a course a student can take on LearningLink
  */
 
-
 public class Course {
 	private String courseID;       //Course Call number ex: MAT266, SER315
 	private String courseName;     //Longform name of course ex: Calculus II, Software Design
@@ -143,15 +142,6 @@ public class Course {
 		this.modules = modules2;
 	}
 	
-	public String printModules() {
-		String list = modules[0];
-		for(int i = 1; i < modules.length; i++) {
-			list = list + ", " + modules[i];
-					
-		}
-		return list;
-	}
-
 	public ArrayList<Student> getEnrolledStudents() {
 		return enrolledStudents;
 	}
@@ -176,12 +166,35 @@ public class Course {
 		return enrollmentLimit;
 	}
 	
+	/*
+	 *returns a string representation of the modules
+	 *that make up a course 
+	 */
+	public String printModules() {
+		String list = modules[0];
+		for(int i = 1; i < modules.length; i++) {
+			list = list + ", " + modules[i];
+					
+		}
+		return list;
+	}
+	
+	/*
+	 * Checks to see if there is room in the course to add new students.
+	 * Returns TRUE if a student can be added.
+	 * Returns FALSE if a student cannot be added.
+	 */
 	public boolean spaceInClass() {
 		if(getNumStudentsEnrolled() < enrollmentLimit)
 			return true;
 		return false;
 	}
 	
+	
+	/*
+	 * Returns a string representation of the students enrolled in the course.
+	 * If no students are enrolled it returns the string "none".
+	 */
 	public String getStudentNames() {
 		try {
 			Student temp = enrolledStudents.get(0);
@@ -197,8 +210,4 @@ public class Course {
 			return "none";
 		}
 	}
-	
-	
-	
-	
 }
