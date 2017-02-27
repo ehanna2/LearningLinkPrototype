@@ -185,8 +185,14 @@ public class Course {
 	 * Returns FALSE if a student cannot be added.
 	 */
 	public boolean spaceInClass() {
-		if(getNumStudentsEnrolled() < enrollmentLimit)
+		System.out.println("Checking course enrollment limit...\n");
+		
+		if(getNumStudentsEnrolled() < enrollmentLimit) {
+			System.out.println("Space available in course: " + courseName + ".\n");
 			return true;
+		}
+		
+		System.out.println("No space available in course: " + courseName + ".\n");
 		return false;
 	}
 	
