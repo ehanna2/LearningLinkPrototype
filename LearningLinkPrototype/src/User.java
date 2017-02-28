@@ -12,8 +12,6 @@ public class User {
 	protected String firstName;
 	protected String lastName;
 	protected String email;
-	private String inputPassword;
-	private String inputUsername;
 	
 	
 	public User() {
@@ -28,7 +26,7 @@ public class User {
 		this.userID = userID;
 	}
 
-	protected String getPassword() {
+	private String getPassword() {
 		return password;
 	}
 
@@ -66,20 +64,6 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	
-	/*
-	 * Validates the user's username and password.
-	 * If the username and password are valid, returns TRUE
-	 * Otherwise, returns FALSE
-	 */
-	public boolean validate(String inputUsername, String inputPassword) {
-		if(inputPassword.equals(password) && inputUsername.equals(userID)) {
-			setLoginStatus(true);
-			return true;
-		}
-		return false;
 	}
 
 }
