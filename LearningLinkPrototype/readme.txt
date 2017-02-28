@@ -15,7 +15,7 @@ It demonstrates the use case of a student registering for a course. For this dem
 we assume that the student is logged in and has found the course they want to add. We
 also assume that the student has completed the Prerequisites. Please note that, in this 
 prototype, some datatypes have been changed for simplicity from the class diagram. 
-Additionally, the Driver class is used to accomplish the functionality of CourseRegistration.
+Additionally, the Driver class is used to accomplish the functionality of CourseRegistration. 
 
 How to run the demo:
 Run Driver.java as a java project.
